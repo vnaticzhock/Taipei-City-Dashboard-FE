@@ -4,7 +4,7 @@
 <!-- The different modes are controlled by the props "notMoreInfo" (default true) and "isMapLayer" (default false) -->
 
 <script setup>
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { useDialogStore } from "../../store/dialogStore";
 import { useContentStore } from "../../store/contentStore";
 
@@ -66,6 +66,12 @@ function toggleFavorite() {
 		contentStore.favoriteComponent(props.content.id);
 	}
 }
+
+onMounted(() => {
+	// console.log('Content:', props.content)
+	// console.log(props.content.chart_config.types)
+})
+
 </script>
 
 <template>
