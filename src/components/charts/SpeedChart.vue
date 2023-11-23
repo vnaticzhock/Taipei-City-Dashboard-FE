@@ -70,11 +70,11 @@ const parsedSeries = computed(() => {
 
 const level = computed(() => {
 	if (parsedSeries.value <= 50) {
-		return "Low";
+		return "低";
 	} else if (parsedSeries.value <= 80) {
-		return "Medium";
+		return "中";
 	} else {
-		return "High";
+		return "高";
 	}
 });
 
@@ -111,10 +111,10 @@ const chartOptions = ref({
 		labels: {
 			useSeriesColors: false,
 		},
-		customLegendItems: ["Low", "Medium", "High"],
+		customLegendItems: ["低", "中", "高"],
 		markers: {
 			size: 0,
-			fillColors: ["#31BD00", "#FF9110", "#BD0000"],
+			fillColors: ["#31BD00", "#FF9110", "#E93838"],
 		},
 		formatter: function (seriesName) {
 			return (
@@ -135,7 +135,7 @@ const chartOptions = ref({
 		></apexchart>
 		<div class="speedchart-title">
 			<h2 :style="{ color: props.chart_config.alert_color[level] }">
-				Risk: {{ level }}
+				風險程度：{{ level }}
 			</h2>
 		</div>
 	</div>
